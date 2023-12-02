@@ -49,6 +49,16 @@ public class Dictionary {
     }
 
     public int searchWord(String target) {
+        int l = 0, r = targetList.size() - 1;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (targetList.get(m).compareTo(target) == 0)
+                return m;
+            else if (targetList.get(m).compareTo(target) < 0) {
+                l = m + 1;
+            } else
+                r = m - 1;
+        }
         // if (target == "" || target == null) {
         // return -1;
         // }
@@ -59,7 +69,8 @@ public class Dictionary {
         // }
         // return -1;
 
-        return targetList.indexOf(target);
+        // return targetList.indexOf(target);
+        return -1;
     }
 
     public int size() {
